@@ -1,0 +1,36 @@
+<%%= form_for(@<%= singular_table_name %>) do |f| %>
+  <%% if @<%= singular_table_name %>.errors.any? %>
+    <div class="row">
+      <div id="error_explanation">
+        <div class="alert alert-danger">
+          The form contains
+          <%%= pluralize(@<%= singular_table_name %>.errors.count, "error") %>
+          <ul>
+          <%% @<%= singular_table_name %>.errors.full_messages.each do |msg| %>
+            <li><%%= msg %></li>
+          <%% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <%% end %>
+
+<% attributes.each do |attribute| -%>
+  <div class="row">
+<% if attribute.password_digest? -%>
+    <%%= f.label :password %>
+    <%%= f.password_field :password %>
+  </div>
+  <div class="row">
+    <%%= f.label :password_confirmation %>
+    <%%= f.password_field :password_confirmation %>
+<% else -%>
+    <%%= f.label :<%= attribute.name %> %>
+    <%%= f.<%= attribute.field_type %> :<%= attribute.name %> %>
+<% end -%>
+  </div>
+<% end -%>
+  <div class="row">
+    <%%= f.submit class: "btn btn-primary" %>
+  </div>
+<%% end %>

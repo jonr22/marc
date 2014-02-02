@@ -1,0 +1,39 @@
+<header>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to 'MARC', root_path, class: 'navbar-brand' %>
+        <%# <%= link_to image_tag("logo-small.png", alt: "movana"), root_path, class: "navbar-brand" %1> %>
+      </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Schedule', '#' %></li>
+          <li><%= link_to 'Standings', '#' %></li>
+          <li><%= link_to 'Results', '#' %></li>
+          <li><%= link_to 'Reports', '#' %></li>
+          <li><%= link_to 'Rules', '#' %></li>
+          <li><%= link_to 'About', '#' %></li>
+          <li><%= link_to 'Links', '#' %></li>
+          <%# <li class="dropdown"> %>
+          <%#   <%= link_to '', '', 'data-toggle' => 'dropdown' %1> %>
+          <%#   <ul class="dropdown-menu" role="menu"> %>
+          <%#     <li><%= link_to 'Dashboard', dashboard_path %1></li> %>
+          <%#     <li><%= link_to 'Profile', edit_user_registration_path %1></li> %>
+          <%#     <li><%= link_to 'Settings', '#' %1></li> %>
+          <%#     <li class="divider"></li> %>
+          <%#     <li> %>
+          <%#       <%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %1> %>
+          <%#     </li> %>
+          <%#   </ul> %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

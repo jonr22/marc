@@ -1,0 +1,18 @@
+AllCops:
+  # Include gemspec and Rakefile
+  Includes:
+    - '**/*.gemspec'
+    - '**/Rakefile'
+  Excludes:
+    - 'db/*'
+
+  RunRailsCops: true
+
+LineLength:
+  Max: 120
+
+MethodLength:
+  Max: 25
+
+Documentation:
+  Enabled: false

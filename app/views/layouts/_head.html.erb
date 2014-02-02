@@ -1,0 +1,21 @@
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+  <meta charset="utf-8">
+
+  <!-- Set Keywords & Description -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+
+  <!-- Set Viewport Options -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+
+  <!-- Include Fonts -->
+  <%# <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600italic,600,700,700italic" rel="stylesheet" type="text/css"> %>
+  <%# <link href="http://fonts.googleapis.com/css?family=Comfortaa:400,300,700" rel="stylesheet" type="text/css"> %>
+
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
+</head>
