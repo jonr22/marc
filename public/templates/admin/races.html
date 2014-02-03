@@ -1,0 +1,56 @@
+<h1>Manage Races</h1>
+
+<div class="form-group">
+  <label for="season">Season</label>
+  <select
+    name="season"
+    class="form-control"
+    ng-change="changeSeason()"
+    ng-model="selectedSeason"
+    ng-options="season.id as season.name for season in data.seasons">
+  </select>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Venue</th>
+      <th>Notes</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="race in data.races">
+      <td>{{ race.date }}</td>
+      <td>{{ race.venue }}</td>
+      <td>{{ race.notes }}</td>
+      <td><a href="" ng-click="removeRace(race)"><span class="glyphicon glyphicon-remove remove"></span></a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+    <!-- <form ng-submit="updateRace(race)" ng-show="race.editing"> -->
+    <!--   <div class="form-group"> -->
+    <!--     <input type="text" class="form-control" ng-model="race.first_name" /> -->
+    <!--   </div> -->
+    <!--   <div class="form-group"> -->
+    <!--     <input type="text" class="form-control" ng-model="race.last_name" /> -->
+    <!--   </div> -->
+    <!--   <input type='submit' value='Update' class='btn btn-default' /> -->
+    <!-- </form> -->
+
+<form ng-submit="addRace()">
+  <div class="form-group">
+    <label for="venue">Venue</label>
+    <input type="text" name="venue" class="form-control" placeholder="Venue Name" ng-model="newRace.venue" />
+  </div>
+  <!-- <div class="form-group"> -->
+  <!--   <label for="last-name">Last Name</label> -->
+  <!--   <input type="text" name="last-name" class="form-control" placeholder="Last Name" ng-model="newRace.last_name" /> -->
+  <!-- </div> -->
+  <input type='submit' value='Add' class='btn btn-default' />
+</form>

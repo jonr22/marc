@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <p>
+      <strong>Date:</strong>
+      <%= @race.date %>
+    </p>
+
+    <p>
+      <strong>Venue:</strong>
+      <%= @race.venue %>
+    </p>
+
+    <p>
+      <strong>Notes:</strong>
+      <%= @race.notes %>
+    </p>
+
+    <p>
+      <strong>Season:</strong>
+      <%= @race.season.name %>
+    </p>
+
+    <%= link_to 'Edit', edit_race_path(@race) %> |
+    <%= link_to 'Back', races_path %>
+  </div>
+</div>

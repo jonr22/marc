@@ -1,0 +1,26 @@
+<h1>Manage Divisions</h1>
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="division in data.divisions" ng-dblclick="toggleEditDivision(division)">
+    <span ng-hide="division.editing">
+      {{ division.name }}
+      <a href="" ng-click="removeDivision(division)"><span class="glyphicon glyphicon-remove remove"></span></a>
+    </span>
+    <form ng-submit="updateDivision(division)" ng-show="division.editing">
+      <div class="input-group">
+        <input type="text" class="form-control" ng-model="division.name" ng-blur="updateDivision(division)" />
+        <span class="input-group-btn">
+          <input type='submit' value='Update' class='btn btn-default' />
+        </span>
+      </div>
+    </form>
+  </li>
+</ul>
+
+<form ng-submit="addDivision()">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="New Division" ng-model="newDivision" />
+    <span class="input-group-btn">
+      <input type='submit' value='Add' class='btn btn-default' />
+    </span>
+  </div>
+</form>

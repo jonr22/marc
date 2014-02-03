@@ -1,0 +1,25 @@
+<%= form_for(@race_class) do |f| %>
+  <% if @race_class.errors.any? %>
+    <div class="row">
+      <div id="error_explanation">
+        <div class="alert alert-danger">
+          The form contains
+          <%= pluralize(@race_class.errors.count, "error") %>
+          <ul>
+          <% @race_class.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

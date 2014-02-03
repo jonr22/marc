@@ -1,0 +1,26 @@
+<h1>Manage Race Classes</h1>
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="raceClass in data.raceClasses" ng-dblclick="toggleEditRaceClass(raceClass)">
+    <span ng-hide="raceClass.editing">
+      {{ raceClass.name }}
+      <a href="" ng-click="removeRaceClass(raceClass)"><span class="glyphicon glyphicon-remove remove"></span></a>
+    </span>
+    <form ng-submit="updateRaceClass(raceClass)" ng-show="raceClass.editing">
+      <div class="input-group">
+        <input type="text" class="form-control" ng-model="raceClass.name" ng-blur="updateRaceClass(raceClass)" />
+        <span class="input-group-btn">
+          <input type='submit' value='Update' class='btn btn-default' />
+        </span>
+      </div>
+    </form>
+  </li>
+</ul>
+
+<form ng-submit="addRaceClass()">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="New Race Class" ng-model="newRaceClass" />
+    <span class="input-group-btn">
+      <input type='submit' value='Add' class='btn btn-default' />
+    </span>
+  </div>
+</form>

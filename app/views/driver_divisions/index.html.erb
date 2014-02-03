@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Driver divisions</h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @driver_divisions.each do |driver_division| %>
+          <tr>
+            <td><%= driver_division.name %></td>
+            <td><%= link_to 'Show', driver_division %></td>
+            <td><%= link_to 'Edit', edit_driver_division_path(driver_division) %></td>
+            <td><%= link_to 'Destroy', driver_division, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New Driver division', new_driver_division_path, class: "btn btn-primary" %>
+  </div>
+</div>

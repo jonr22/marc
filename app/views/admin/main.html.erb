@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="list-group">
+        <li class="list-group-item"><%= link_to 'Race Results', '#' %></li>
+        <li class="list-group-item"><a ng-href="#/schedule">Schedule</a></li>
+        <li class="list-group-item"><a ng-href="#/seasons">Seasons</a></li>
+        <li class="list-group-item"><a ng-href="#/race_classes">Race Class</a></li>
+        <li class="list-group-item"><%= link_to 'Rules', '#' %></li>
+        <li class="list-group-item"><a ng-href="#/drivers">Drivers</a></li>
+        <li class="list-group-item"><a ng-href="#/divisions">Driver Divisions</a></li>
+      </ul>
+    </div>
+
+    <div class="col-sm-9">
+      <div ng-view></div>
+    </div>
+  </div>
+</div>

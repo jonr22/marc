@@ -1,0 +1,30 @@
+<h1>Manage Drivers</h1>
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="driver in data.drivers" ng-dblclick="toggleEditDriver(driver)">
+    <span ng-hide="driver.editing">
+      {{ driver.first_name + " " + driver.last_name }}
+      <a href="" ng-click="removeDriver(driver)"><span class="glyphicon glyphicon-remove remove"></span></a>
+    </span>
+    <form ng-submit="updateDriver(driver)" ng-show="driver.editing">
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="driver.first_name" />
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="driver.last_name" />
+      </div>
+      <input type='submit' value='Update' class='btn btn-default' />
+    </form>
+  </li>
+</ul>
+
+<form ng-submit="addDriver()">
+  <div class="form-group">
+    <label for="first-name">First Name</label>
+    <input type="text" name="first-name" class="form-control" placeholder="First Name" ng-model="newDriver.first_name" />
+  </div>
+  <div class="form-group">
+    <label for="last-name">Last Name</label>
+    <input type="text" name="last-name" class="form-control" placeholder="Last Name" ng-model="newDriver.last_name" />
+  </div>
+  <input type='submit' value='Add' class='btn btn-default' />
+</form>

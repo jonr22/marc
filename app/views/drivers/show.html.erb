@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <p>
+      <strong>First name:</strong>
+      <%= @driver.first_name %>
+    </p>
+
+    <p>
+      <strong>Last name:</strong>
+      <%= @driver.last_name %>
+    </p>
+
+    <%= link_to 'Edit', edit_driver_path(@driver) %> |
+    <%= link_to 'Back', drivers_path %>
+  </div>
+</div>

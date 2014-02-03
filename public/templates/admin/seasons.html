@@ -1,0 +1,26 @@
+<h1>Manage Seasons</h1>
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="season in data.seasons" ng-dblclick="toggleEditSeason(season)">
+    <span ng-hide="season.editing">
+      {{ season.name }}
+      <a href="" ng-click="removeSeason(season)"><span class="glyphicon glyphicon-remove remove"></span></a>
+    </span>
+    <form ng-submit="updateSeason(season)" ng-show="season.editing">
+      <div class="input-group">
+        <input type="text" class="form-control" ng-model="season.name" ng-blur="updateSeason(season)" />
+        <span class="input-group-btn">
+          <input type='submit' value='Update' class='btn btn-default' />
+        </span>
+      </div>
+    </form>
+  </li>
+</ul>
+
+<form ng-submit="addSeason()">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="New Season" ng-model="newSeason" />
+    <span class="input-group-btn">
+      <input type='submit' value='Add' class='btn btn-default' />
+    </span>
+  </div>
+</form>
