@@ -1,0 +1,89 @@
+<h1>Manage Results</h1>
+
+<div class="form-group">
+  <label for="season">Season</label>
+  <select
+    name="season"
+    class="form-control"
+    ng-change="changeSeason()"
+    ng-model="selectedSeason"
+    ng-options="season.id as season.name for season in data.seasons">
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="race">Race</label>
+  <select
+    name="race"
+    class="form-control"
+    ng-model="selectedRace"
+    ng-options="race.id as race.date + ' - ' + race.venue for race in data.races">
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="raceClass">Class</label>
+  <select
+    name="raceClass"
+    class="form-control"
+    ng-model="selectedRaceClass"
+    ng-options="raceClass.id as raceClass.name for raceClass in data.raceClasses">
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="division">Division</label>
+  <select
+    name="division"
+    class="form-control"
+    ng-model="selectedDivision"
+    ng-options="division.id as division.name for division in data.divisions">
+  </select>
+</div>
+
+<table class="table table-responsive">
+  <thead>
+    <tr>
+      <th class="driver">Driver</th>
+      <th ng-repeat="heat in data.heats" ng-dblclick="toggleHeatEditting(heat)">
+        <div ng-hide="heat.editing">
+          {{ heat.name }}
+          <a href="" ng-click="removeHeat(heat)"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+        <form ng-show="heat.editing" ng-submit="updateHeat(heat)">
+          <div class="input-group">
+            <input type="text" class="form-control" ng-model="heat.name" ng-blur="updateHeat(heat)" autofocus="true" />
+            <span class="input-group-btn">
+              <input type="submit" class="btn btn-default" />
+            </span>
+          </div>
+        </form>
+      </th>
+      <th>Sections</th>
+      <th>Total Laps</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="result in data.results">
+      <td>
+        <select
+          name="driver"
+          class="form-control"
+          ng-model="result.driver"
+          ng-options="driver.id as driver.first_name + ' ' + driver.last_name for driver in data.drivers">
+        </select>
+      </td>
+      <td ng-repeat="heat in result.heats">
+        <input type="text" class="form-control" ng-model="heat.laps" />
+      </td>
+      <td><input type="text" class="form-control" ng-model="result.sections" /></td>
+      <td>{{ heatTotal(result) }}</td>
+      <td><a href="" ng-click="removeResult(result)"><span class="glyphicon glyphicon-remove"></span></a>
+    </tr>
+  </tbody>
+</table>
+
+<a href="" ng-click="addHeat()" class="btn btn-default">Add Heat</a>
+<a href="" ng-click="addResult()" class="btn btn-default">Add Result</a>
+

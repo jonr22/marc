@@ -8,12 +8,18 @@
         name: 'Loading...'
       ]
 
+    $scope.newSeason = null
+
     $scope.addSeason = ->
       save = seasonService.save(
         season:
           name: $scope.newSeason
       )
-      save.$promise.then(loadSeasons)
+      save.$promise.then(loadSeasons, (error) ->
+        for key, values of error.data
+          do (key, values) ->
+            $("##{key}").parent(".input-group").addClass("has-error")
+      )
       $scope.newSeason = ''
 
     $scope.updateSeason = (season) ->

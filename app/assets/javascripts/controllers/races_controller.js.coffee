@@ -11,14 +11,20 @@
       seasons: [
         name: 'Loading...'
       ]
-
     $scope.addRace = ->
       save = raceService.save(
         race:
-          name: $scope.newRace
+          date: $scope.newRace.date
+          venue: $scope.newRace.venue
+          notes: $scope.newRace.notes
+          season_id: $scope.selectedSeason
       )
-      save.$promise.then(loadRaces)
-      $scope.newRace = ''
+      $scope.newRace.date = ''
+      $scope.newRace.venue = ''
+      $scope.newRace.notes = ''
+
+      save.$promise.then ->
+        loadRaces($scope.selectedSeason)
 
     $scope.updateRace = (race) ->
       update = raceService.update(

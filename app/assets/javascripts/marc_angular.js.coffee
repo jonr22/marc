@@ -26,6 +26,9 @@
     when('/schedule',
       templateUrl: '../templates/admin/races.html'
       controller: 'RacesController'
+    ).
+    when('/results',
+      templateUrl: '../templates/admin/results.html'
+      controller: 'ResultsController'
     )
-
 ]

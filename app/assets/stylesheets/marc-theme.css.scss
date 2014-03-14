@@ -1,1 +1,13 @@
 @import "bootstrap";
+
+.table {
+  .driver {
+    min-width: 250px;
+  }
+  form {
+    min-width: 250px;
+  }
+  th, td {
+    min-width: 60px;
+  }
+}

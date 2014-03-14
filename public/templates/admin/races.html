@@ -31,26 +31,18 @@
   </tbody>
 </table>
 
-
-
-    <!-- <form ng-submit="updateRace(race)" ng-show="race.editing"> -->
-    <!--   <div class="form-group"> -->
-    <!--     <input type="text" class="form-control" ng-model="race.first_name" /> -->
-    <!--   </div> -->
-    <!--   <div class="form-group"> -->
-    <!--     <input type="text" class="form-control" ng-model="race.last_name" /> -->
-    <!--   </div> -->
-    <!--   <input type='submit' value='Update' class='btn btn-default' /> -->
-    <!-- </form> -->
-
 <form ng-submit="addRace()">
+  <div class="form-group">
+    <label for="date">Date</label>
+    <input type="text" name="date" class="form-control" placeholder="Date" ng-model="newRace.date" />
+  </div>
   <div class="form-group">
     <label for="venue">Venue</label>
     <input type="text" name="venue" class="form-control" placeholder="Venue Name" ng-model="newRace.venue" />
   </div>
-  <!-- <div class="form-group"> -->
-  <!--   <label for="last-name">Last Name</label> -->
-  <!--   <input type="text" name="last-name" class="form-control" placeholder="Last Name" ng-model="newRace.last_name" /> -->
-  <!-- </div> -->
+  <div class="form-group">
+    <label for="notes">Notes</label>
+    <textarea name="notes" class="form-control" placeholder="Notes" ng-model="newRace.notes"></textarea>
+  </div>
   <input type='submit' value='Add' class='btn btn-default' />
 </form>
